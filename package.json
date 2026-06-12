@@ -8,7 +8,7 @@
   },
   "scripts": {
     "start": "node app.js",
-    "test": "echo \"no tests added yet\" && exit 0",
+    "test": "echo \"no tests added yet\" && exit 0"
   
   },
   "author": "",
