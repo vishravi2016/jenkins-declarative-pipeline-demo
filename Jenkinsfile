@@ -69,6 +69,36 @@ pipeline {
                 archiveArtifacts artifacts: 'dist/**', fingerprint: true
             }
         }
+        stage ('Docker Build'){
+            agent any
+            steps {
+                unstash 'after-build'
+                script {
+                    dockerImage=docker.build("${DOCKER_IMAGE}:${DOCKER_TAG}")
+                }
+            }
+        }
+        stage('Docker Push'){
+            agent any
+            steps{
+                script{
+                    docker.withRegistry('https://registry.hub.docker.com','dockerhub-credentials'){
+                        dockerImage.push("${DOCKER_TAG}")
+                        dockerImage.push('latest')
+                    }
+                }
+            }
+        }
+        stage('Cleanup Local Images'){
+            agent any
+            steps {
+                sh "docker rmi ${DOCKER_IMAGE}:${DOCKER_TAG}  || true"
+                sh "docker rmi ${DOCKER_IMAGE}:latest  || true"
+
+            }
+        }
+
+        
     }
 
     post {
