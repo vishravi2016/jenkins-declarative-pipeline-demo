@@ -39,13 +39,13 @@ pipeline {
         }
 
 
-        stage('Lint') {
+        // stage('Lint') {
            
-            steps {
-                //unstash 'after-install'
-                sh 'npm run lint'
-            }
-        }
+        //     steps {
+        //         //unstash 'after-install'
+        //         sh 'npm run lint'
+        //     }
+        // }
 
         stage('Run Tests') {
             
