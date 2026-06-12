@@ -18,6 +18,16 @@ pipeline {
                 //stash includes: '**', name: 'source'
             }
         }
+        stage('check environment'){
+            steps {
+                sh '''
+                    whoami
+                    pwd
+                    node -v
+                    npm -v
+                '''
+            }
+        }
 
         stage('Install Dependencies') {
                 
