@@ -1,5 +1,5 @@
 pipeline {
-    
+    agent none
 
     tools {
         nodejs 'NodeJS-18'
