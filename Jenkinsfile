@@ -1,5 +1,3 @@
-Attention:This email is originated from external domain. Please check full "Sender email ID" and not just the "Display name". Exercise caution before responding to this email or opening any links in this email.
-
 pipeline {
     agent none
 
