@@ -24,7 +24,7 @@ pipeline {
 
         stage('Install Dependencies') {
             agent {
-                docker { image: 'node-18-alpine'}
+                docker { image 'node-18-alpine'}
             }
             steps {
                 unstash 'source'                
@@ -35,7 +35,7 @@ pipeline {
 
         stage('Lint') {
             agent {
-                docker { image: 'node-18-alpine'}
+                docker { image 'node-18-alpine'}
             }
             steps {
                 unstash 'after-install'
@@ -45,7 +45,7 @@ pipeline {
 
         stage('Run Tests') {
             agent {
-                docker { image: 'node-18-alpine'}
+                docker { image 'node-18-alpine'}
             }
             steps {
                 unstash 'after-install'
@@ -55,7 +55,7 @@ pipeline {
 
         stage('Build') {
             agent {
-                docker { image: 'node-18-alpine'}
+                docker { image 'node-18-alpine'}
             }
             steps {
                 unstash 'after-install'
