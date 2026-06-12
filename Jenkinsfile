@@ -12,8 +12,9 @@ pipeline {
     }
 
     stages {
-        agent any
+       
         stage('Checkout') {
+            agent any
             steps {
                 git branch: 'main', url: 'https://github.com/vishravi2016/jenkins-declarative-pipeline-demo.git'
                 stash includes: '**', name: 'source'
