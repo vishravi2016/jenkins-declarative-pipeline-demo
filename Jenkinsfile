@@ -3,7 +3,7 @@ pipeline {
 
     tools {
         nodejs 'NodeJS-18'
-    }
+    // }
 
     environment {
         DOCKER_IMAGE='vishravi1975/node-app'
